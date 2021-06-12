@@ -21,3 +21,7 @@ Route::get('/', function() {
 Route::get('/login', function() {
     return view('ui.login');
 });
+
+Route::namespace('App\Http\Controllers')->group(function() {
+    Route::resource('/user', 'UserController');
+});
