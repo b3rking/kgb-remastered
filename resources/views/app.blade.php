@@ -6,6 +6,7 @@
 </head>
 <body>
     @yield('content')
-    <h1>HELLO it's berking</h1>
+
+    <script src="js/app.js"></script>
 </body>
 </html>
