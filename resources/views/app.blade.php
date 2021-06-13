@@ -14,7 +14,7 @@
                 @endguest
                 @auth
                 <li><a href="{{ route('logout' ) }}">logout</a></li>
-                <li><a href="#">account</a></li>
+                <li><a href="#">profile</a></li>
                 @endauth
             </ul>
         </nav>
