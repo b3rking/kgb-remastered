@@ -2,6 +2,12 @@
 @section('title', 'sign up page')
 @section('content')
 
+@if($errors->any)
+	@foreach($errors->all() as $error)
+		{{ $error }}
+	@endforeach
+@endif
+
 <form action="{{ route('user.store') }}" method="post">
 	@csrf
 	<label> fullname <input type="text" name="fullname"></label>
