@@ -1,7 +1,7 @@
 @extends('app')
 @section('title', 'login page')
 @section('content')
-	<form action="login" method="get">
+	<form action="authenticate" method="get">
 		@csrf
 		<input type="text" name="username">
 		<input type="password" name="password">
