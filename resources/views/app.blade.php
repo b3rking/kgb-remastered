@@ -8,8 +8,8 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">login</a></li>
+                <li><a href="{{ route('home') }}">Home</a></li>
+                <li><a href="{{ route('login') }}">login</a></li>
                 @auth
                 <li><a href="#">account</a></li>
                 @endauth

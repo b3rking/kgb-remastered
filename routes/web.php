@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function() {
     return view('ui.home');
-});
+})->name('home');
 
 Route::get('/login', function() {
     return view('ui.login');
@@ -25,3 +25,9 @@ Route::get('/login', function() {
 Route::namespace('App\Http\Controllers')->group(function() {
     Route::resource('/user', 'UserController');
 });
+
+// auth routes
+
+Route::get('user/login', function() {
+    return view('auth.login');
+})->name('login');
