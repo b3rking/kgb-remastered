@@ -2,9 +2,11 @@
 @section('title', 'login page')
 @section('content')
 	@if($errors->any())
-		@foreach($errors as $error)
-			{{ $error }}
+		<ul>
+		@foreach($errors->all() as $error)
+			<li>{{ $error }}</li>
 		@endforeach
+		</ul>
 	@endif
 	<form action="authenticate" method="get">
 		@csrf

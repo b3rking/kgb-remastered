@@ -25,7 +25,7 @@ class AuthController extends Controller
 
         else {
             return back()->withErrors([
-                'username' => 'wrong credentials!'
+                'msg' => 'wrong credentials!'
             ]);
         }
     }
