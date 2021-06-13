@@ -1,11 +1,12 @@
 @extends('app')
 @section('title', 'user page')
 @section('content')
-	@foreach($users as $user)
-		@if (count($user) < 0)
+	
+	@if (count($users) < 0)
 			no records!
-		@else
-			{{ $user }}
-		@endif
-	@endforeach
+	@else
+		@foreach($users as $user)
+			{{ $user->username }}
+		@endforeach
+	@endif
 @stop
