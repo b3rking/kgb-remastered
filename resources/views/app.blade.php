@@ -9,8 +9,11 @@
         <nav>
             <ul>
                 <li><a href="{{ route('home') }}">Home</a></li>
+                @guest
                 <li><a href="{{ route('login') }}">login</a></li>
+                @endguest
                 @auth
+                <li><a href="{{ route('logout' ) }}">logout</a></li>
                 <li><a href="#">account</a></li>
                 @endauth
             </ul>

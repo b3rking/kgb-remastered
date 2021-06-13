@@ -16,4 +16,5 @@ Route::namespace('App\Http\Controllers')->group(function() {
 Route::namespace('App\Http\Controllers')->group(function() {
     Route::get('login', 'AuthController@login')->name('login');
     Route::get('authenticate', 'AuthController@authenticate')->name('authenticate');
+    Route::get('logout', 'AuthController@logout')->name('logout');
 });
