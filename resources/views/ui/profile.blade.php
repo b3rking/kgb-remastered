@@ -3,31 +3,40 @@
 @section('content')
 	<section class="pega1">
 
+		<div class="user__data">
+			<p>fullname: {{ $user->fullname }}</p>
+			<p>username: {{ $user->username }}</p>
+			<p>email: {{ $user->email }}</p>
+			<p>bio: {{ $user->bio }}</p>
+			<p>statut: {{ $user->statut }}</p>
+			<p>pic_path</p><img src="{{ $user->pic_path }}">
+		</div>
+
   <div class="modal_container">
     <div class="modal_body">
       <div class="modal_header">
-        <h3>Update your profile</h3>
+        <h3>{{ $user->username }}, update your profile...</h3>
         <span class='modal_x'><i class="far fa-window-close"></i></span>
       </div>
       <form action="src/app.php?action=update" method="POST" enctype="multipart/form-data">
         <div class="input-box">
           <label for="username">username</label>
-          <input class="inputBox" class="inp" type="text" name="username">
+          <input type="text" name="username" value="{{ $user->username }}">
         </div>
 
         <div class="input-box">
           <label for="fullname">fullname</label>
-          <input class="inputBox" type="text" name="fullname">
+          <input type="text" name="fullname" value="{{ $user->fullname }}">
         </div>
 
         <div class="input-box">
           <label for="email">email</label>
-          <input class="inputBox" type="email" name="email">
+          <input class="inputBox" type="email" name="email" value="{{ $user->email }}">
         </div>
 
         <div class="input-box">
           <label for="status">status</label>
-          <input class="inputBox" type="text" name="status">
+          <input class="inputBox" type="text" name="status" value="{{ $user->statut }}">
         </div>
 
         <div class="input-box">
@@ -36,7 +45,7 @@
         </div>
         <div class="input-box">
           <label for="bio">bio</label>
-          <textarea id="update" name="bio" cols="30" rows="10">here goes your bio!</textarea>
+          <textarea id="update" name="bio" cols="30" rows="10">{{ $user->bio }}</textarea>
         </div>
 
         <button type="submit" class="btn">update user</button>
