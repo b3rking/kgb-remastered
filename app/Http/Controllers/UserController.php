@@ -17,8 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('ui.diary')->with('users', $users);
+        return back();
     }
 
     /**
@@ -68,8 +67,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id)->get();
-        return view('diary')->with(['user' => $user]);
+        return back();
     }
 
     /**
@@ -80,7 +78,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        
+        return back();
     }
 
     /**
@@ -103,6 +101,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return back();
     }
 }
