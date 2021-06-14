@@ -88,9 +88,23 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $user->update($request->all());
+
+        // $user->fullname = $request->fullname;
+        // $user->username = $request->username;
+        // $user->save();
+
+        // $user = User::where('id', $id)->update([
+        //     'fullname' => $request->fullname,
+        //     'username' => $request->username,
+        //     'status' => $request->status,
+        //     'bio' => $request->bio,
+        //     'pic_path' => 'link'
+        // ]);
+
+        return redirect()->route('profile');
     }
 
     /**

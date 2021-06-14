@@ -8,17 +8,15 @@
 			<p>username: {{ $user->username }}</p>
 			<p>email: {{ $user->email }}</p>
 			<p>bio: {{ $user->bio }}</p>
-			<p>statut: {{ $user->statut }}</p>
+			<p>status: {{ $user->status }}</p>
 			<p>pic_path</p><img src="{{ $user->pic_path }}">
 		</div>
 
-  <div class="modal_container">
-    <div class="modal_body">
-      <div class="modal_header">
         <h3>{{ $user->username }}, update your profile...</h3>
-        <span class='modal_x'><i class="far fa-window-close"></i></span>
-      </div>
-      <form action="src/app.php?action=update" method="POST" enctype="multipart/form-data">
+
+      <form action="{{ route('user.update', $user->id) }}" method="post" enctype="multipart/form-data">
+      	@csrf
+      	{{ method_field('patch') }}
         <div class="input-box">
           <label for="username">username</label>
           <input type="text" name="username" value="{{ $user->username }}">
@@ -40,18 +38,16 @@
         </div>
 
         <div class="input-box">
-          <label for="fullname">profile pic</label>
-          <input class="inputBox" type="file" name="profile_pic">
+          <label for="pic_path">profile pic</label>
+          <input class="inputBox" type="file" name="pic_path">
         </div>
         <div class="input-box">
           <label for="bio">bio</label>
           <textarea id="update" name="bio" cols="30" rows="10">{{ $user->bio }}</textarea>
         </div>
 
-        <button type="submit" class="btn">update user</button>
+        <button type="submit">update user</button>
       </form>
-    </div>
-  </div>
 
   <div class="diary_interface">
     <h1 class="title_di">Share your journee bro (>_<)</h1>
