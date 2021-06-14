@@ -2,16 +2,26 @@
 
 use Illuminate\Support\Facades\Route;
 
+///////////////////////////// main routes
+
 
 Route::get('/', 'App\Http\Controllers\AppController@home')->name('home')->middleware('auth');
 
-Route::get('/diary', 'App\Http\Controllers\UserController@show');
+Route::get('/diary', 'App\Http\Controllers\AppController@diary')->name('diary')->middleware('auth');
+
+Route::get('/profile', 'App\Http\Controllers\AppController@profile')->name('profile')->middleware('auth');
+
+
+//////////////////////////// resources controller routes
+
 
 Route::namespace('App\Http\Controllers')->group(function() {
     Route::resource('/user', 'UserController');
 });
 
-// auth routes
+
+//////////////////////////// auth routes
+
 
 Route::namespace('App\Http\Controllers')->group(function() {
     Route::get('login', 'AuthController@login')->name('login');
