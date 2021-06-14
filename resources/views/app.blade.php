@@ -15,6 +15,8 @@
                 @auth
                 <li><a href="{{ route('logout' ) }}">logout</a></li>
                 <li><a href="#">profile</a></li>
+                <img src="{{ $user->pic_path }}" alt="{{ $user->username }} logo at kgb">
+                <p>{{ $user->username }}</p>
                 @endauth
             </ul>
         </nav>
