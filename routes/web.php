@@ -19,6 +19,18 @@ Route::namespace('App\Http\Controllers')->group(function() {
     Route::resource('/user', 'UserController');
 });
 
+Route::namespace('App\Http\Controllers')->group(function() {
+    Route::resource('/like', 'LikeController');
+});
+
+Route::namespace('App\Http\Controllers')->group(function() {
+    Route::resource('/comment', 'CommentController');
+});
+
+Route::namespace('App\Http\Controllers')->group(function() {
+    Route::resource('/note', 'NoteController');
+});
+
 
 //////////////////////////// auth routes
 

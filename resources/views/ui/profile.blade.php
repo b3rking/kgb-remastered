@@ -34,7 +34,7 @@
 
         <div class="input-box">
           <label for="status">status</label>
-          <input class="inputBox" type="text" name="status" value="{{ $user->statut }}">
+          <input class="inputBox" type="text" name="status" value="{{ $user->status }}">
         </div>
 
         <div class="input-box">

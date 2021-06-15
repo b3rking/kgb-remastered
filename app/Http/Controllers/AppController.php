@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AppController extends Controller
 {
     
     public function home(Request $request) {
-        return view('ui.home')->with('user', $request->user());
+        $users = User::orderBy('created_at', 'desc')->get();
+        return view('ui.home',)
+                ->with('user', $request->user())
+                ->with('users', $users);
     }
 
     public function diary(Request $request) {
