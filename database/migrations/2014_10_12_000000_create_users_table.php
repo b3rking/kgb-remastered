@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->string('bio')->nullable();
             $table->string('status')->nullable();
-            $table->string('pic_path')->nullable();
+            $table->string('pic_path')->default('uploads/default.png');
         });
     }
 
