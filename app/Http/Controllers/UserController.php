@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\AUth;
 
 
 class UserController extends Controller
@@ -54,9 +55,7 @@ class UserController extends Controller
 
         $user = new User();
 
-        Auth::login($user);
-
-        return redirect()->route('user.index');
+        return redirect()->route('login');
     }
 
     /**
