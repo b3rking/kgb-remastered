@@ -1,12 +1,15 @@
 @extends('app')
 @section('title', 'user page')
 @section('content')
-	
-	@if (count($users) < 0)
-			no records!
+	@foreach($owner as $ow)
+		<h1>welcome on {{ $ow->username }} diary</h1>
+	@endforeach
+	@if (count($notes) <= 0)
+		no notes!
 	@else
-		@foreach($users as $user)
-			{{ $user->username }}
+		@foreach($notes as $nt)
+			<h1>{{ $nt->title }}</h1>
+			<p>{{ $nt->body }}</p><br>
 		@endforeach
 	@endif
 @stop

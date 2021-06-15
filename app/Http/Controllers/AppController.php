@@ -18,8 +18,12 @@ class AppController extends Controller
                 ->with('notes', $notes);
     }
 
-    public function diary(Request $request) {
-        return view('ui.diary')->with('user', $request->user());
+    public function diary(Request $request, $id) {
+        $owner = User::where('id', $id)->get();
+        $notes = Note::where('user_id', $id)->get();
+        return view('ui.diary')->with('user', $request->user())
+                                ->with('owner', $owner)
+                                ->with('notes', $notes);
     }
 
     public function profile(Request $request) {

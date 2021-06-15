@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\AppController@home')->name('home')->middleware('auth');
 
-Route::get('/diary', 'App\Http\Controllers\AppController@diary')->name('diary')->middleware('auth');
+Route::get('/diary/{id}', 'App\Http\Controllers\AppController@diary')->name('diary')->middleware('auth');
 
 Route::get('/profile', 'App\Http\Controllers\AppController@profile')->name('profile')->middleware('auth');
 

@@ -3,7 +3,7 @@
 @section('content')
 	<h1>home page</h1>
 	<!-- all the user -->
-	@if(is_null($users))
+	@if(count($users) <= 0)
 		no user!
 	@else
 		<h2 style="text-decoration: underline;">actual kgb members!</h2>
@@ -13,13 +13,14 @@
 		@endforeach
 	@endif
 	<!--all the notes paginated-->
-	@if(is_null($notes))
-		no notes, be the first one!
+	@if(count($notes) <= 0)
+		no notes yet, be the first one!
 	@else
 		<h2 style="text-decoration: underline;">recent notes!</h2>
 		@foreach($notes as $nt)
 			<h3>{{ $nt->title }}</h3>
 			<p>{{ $nt->body }}</p>
+			<p>{{ $nt->created_at }}</p><br>
 		@endforeach
 	@endif
 @stop
