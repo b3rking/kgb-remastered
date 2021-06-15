@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Note;
+use App\Models\Like;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class NoteFactory extends Factory
+class LikeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Note::class;
+    protected $model = Like::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,8 @@ class NoteFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(6,true),
             'user_id' => $this->faker->numberBetween(1,5),
-            'body' => $this->faker->text(200)
+            'note_id' => $this->faker->numberBetween(1,30)
         ];
     }
 }
