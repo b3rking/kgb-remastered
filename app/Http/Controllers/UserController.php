@@ -90,19 +90,16 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->update($request->all());
+        $avatar = $request->file('pic_path')->store('uploads');
 
-        // $user->fullname = $request->fullname;
-        // $user->username = $request->username;
-        // $user->save();
-
-        // $user = User::where('id', $id)->update([
-        //     'fullname' => $request->fullname,
-        //     'username' => $request->username,
-        //     'status' => $request->status,
-        //     'bio' => $request->bio,
-        //     'pic_path' => 'link'
-        // ]);
+        $user = User::where('id', $user->id)->update([
+            'fullname' => $request->fullname,
+            'username' => $request->username,
+            'status' => $request->status,
+            'bio' => $request->bio,
+            'email' => $request->email,
+            'pic_path' => $avatar
+        ]);
 
         return redirect()->route('profile');
     }
