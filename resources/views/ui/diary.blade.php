@@ -1,8 +1,8 @@
 @extends('app')
-@section('title', 'user page')
 @section('content')
 	@foreach($owner as $ow)
 		<h1>welcome on {{ $ow->username }} diary</h1>
+		@section('title', $ow->username.' Diary')
 	@endforeach
 	@if (count($notes) <= 0)
 		no notes!

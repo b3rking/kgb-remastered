@@ -9,7 +9,7 @@
 			<p>email: {{ $user->email }}</p>
 			<p>bio: {{ $user->bio }}</p>
 			<p>status: {{ $user->status }}</p>
-			<p>pic_path</p><img src="{{ $user->pic_path }}">
+			<p>pic_path</p><img src="{{ asset($user->pic_path) }}">
 		</div>
 
         <h3>{{ $user->username }}, update your profile...</h3>
