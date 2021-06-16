@@ -9,7 +9,7 @@
 		<h2 style="text-decoration: underline;">actual kgb members!</h2>
 		@foreach($users as $us)
 			<strong>{{ $us->username }}</strong>
-			<em><a href="{{ route('diary', $us->id) }}">his diary</a></em><br>
+			<em><a href="{{ route('diary', $us->username) }}">his diary</a></em><br>
 		@endforeach
 	@endif
 	<!--all the notes paginated-->

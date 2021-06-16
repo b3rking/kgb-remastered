@@ -18,8 +18,9 @@ class AppController extends Controller
                 ->with('notes', $notes);
     }
 
-    public function diary(Request $request, $id) {
-        $owner = User::where('id', $id)->get();
+    public function diary(Request $request, $username) {
+        $owner = User::where('username', $username)->get();
+        foreach($owner as $ow) { $id = $ow->id; }
         $notes = Note::where('user_id', $id)->orderBy('created_at', 'desc')->get();
         return view('ui.diary',)
                 ->with('user', $request->user())
