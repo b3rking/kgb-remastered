@@ -29,6 +29,9 @@ class AppController extends Controller
     }
 
     public function profile(Request $request) {
-        return view('ui.profile')->with('user', $request->user());
+        $notes = Note::where('user_id', $request->user()->id)->orderBy('created_at', 'desc')->get();
+        return view('ui.profile')
+                    ->with('user', $request->user())
+                    ->with('notes', $notes);
     }
 }

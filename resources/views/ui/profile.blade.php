@@ -48,10 +48,36 @@
 
         <button type="submit">update user</button>
       </form>
-
+  <h3>Your notes!</h3>
+  @if(count($notes) <= 0)
+      you haven't posted any note yet, try posting one!
+  @else
+      @foreach($notes as $nt)
+          <h4>{{ $nt->title }}</h4>
+          <p>{{ $nt->body }}</p>
+          <a href="">edit</a>
+          <a href="{{ route('user.destroy', $user->id) }}">delete</a>
+          <form action="{{ route('note.update', $user->id) }}" method="post">
+            <h4>editing note...</h4>
+            @csrf
+            {{ method_field('patch') }}
+            <input type="text" name="id" hidden="" value="{{ $user->id }}">
+            <div class="input-box">
+              <label for="title">title</label>
+              <input type="text" name="title" id="title" value="{{ $nt->title }}">
+            </div>
+            <div>
+              <textarea name="body" id="amazing_text" cols="30" rows="10">{{ $nt->body }}</textarea>
+            </div>
+            <button type="submit" class="btn">edit your note!</button>
+          </form>
+      @endforeach
+  @endif
   <div class="diary_interface">
-    <h1 class="title_di">Share your journee bro (>_<)</h1>
-          <form action="src/app.php?action=add_note" method="POST">
+    <h1 class="title_di">Share your journee bro</h1>
+          <form action="{{ route('note.store') }}" method="POST">
+            @csrf
+            <input type="text" name="id" hidden="" value="{{ $user->id }}">
             <div class="input-box">
               <label for="title">title</label>
               <input type="text" name="title" id="title">

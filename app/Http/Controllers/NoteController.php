@@ -24,7 +24,7 @@ class NoteController extends Controller
      */
     public function create()
     {
-        
+        return redirect()->route('home');
     }
 
     /**
@@ -35,7 +35,18 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:150',
+            'body' => 'required|max:700'
+        ]);
+
+        Note::create([
+            'user_id' => $request->id,
+            'body' => $request->body,
+            'title' => $request->title
+        ]);
+
+        return redirect()->route('profile');
     }
 
     /**
@@ -46,7 +57,7 @@ class NoteController extends Controller
      */
     public function show(Note $note)
     {
-        //
+        return redirect()->route('home');
     }
 
     /**
@@ -57,7 +68,7 @@ class NoteController extends Controller
      */
     public function edit(Note $note)
     {
-        //
+        return redirect()->route('home');
     }
 
     /**
@@ -67,9 +78,19 @@ class NoteController extends Controller
      * @param  \App\Models\Note  $note
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Note $note)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:150',
+            'body' => 'required|max:700'
+        ]);
+
+        Note::find($id)->update([
+            'title' => $request->title,
+            'body' => $request->body
+        ]);
+
+        return back();
     }
 
     /**
@@ -80,6 +101,8 @@ class NoteController extends Controller
      */
     public function destroy(Note $note)
     {
-        //
+        $nt = Note::find($note);
+        $nt->delete();
+        return back();
     }
 }
