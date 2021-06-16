@@ -78,14 +78,14 @@ class NoteController extends Controller
      * @param  \App\Models\Note  $note
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Note $note)
     {
-        $this->validate($request, [
-            'title' => 'required|max:150',
-            'body' => 'required|max:700'
-        ]);
+        // $this->validate($request, [
+        //     'title' => 'required|max:150',
+        //     'body' => 'required|max:700'
+        // ]);
 
-        Note::find($id)->update([
+        $note->update([
             'title' => $request->title,
             'body' => $request->body
         ]);
@@ -101,8 +101,6 @@ class NoteController extends Controller
      */
     public function destroy(Note $note)
     {
-        $nt = Note::find($note);
-        $nt->delete();
-        return back();
+        Note::destroy($note);
     }
 }

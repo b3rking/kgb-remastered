@@ -60,7 +60,7 @@
           <form action="{{ route('note.update', $user->id) }}" method="post">
             <h4>editing note...</h4>
             @csrf
-            {{ method_field('patch') }}
+            @method('patch')
             <input type="text" name="id" hidden="" value="{{ $user->id }}">
             <div class="input-box">
               <label for="title">title</label>
