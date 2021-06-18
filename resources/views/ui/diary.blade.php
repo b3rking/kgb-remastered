@@ -5,7 +5,9 @@
 		@section('title', $ow->username.' Diary')
 	@endforeach
 	@if (count($notes) <= 0)
-		no notes!
+		@foreach($owner as $ow)
+			<p>ooh man! {{ $ow->username }} diary is empty :(</p>
+		@endforeach
 	@else
 		@foreach($notes as $nt)
 			<h1>{{ $nt->title }}</h1>

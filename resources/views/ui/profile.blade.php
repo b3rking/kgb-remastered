@@ -50,7 +50,7 @@
       </form>
   <h3>Your notes!</h3>
   @if(count($notes) <= 0)
-      you haven't posted any note yet, try posting one!
+      you haven't posted anything yet, try posting one!
   @else
       @foreach($notes as $nt)
           <h4>{{ $nt->title }}</h4>
@@ -58,7 +58,8 @@
           <a href="">edit</a>
           <a href="{{ route('user.destroy', $user->id) }}">delete</a>
       @endforeach
-      @if($errors->any())
+      {{-- removed will be reused later!--}}
+      {{-- @if($errors->any())
          <ul>
             @foreach($errors->all() as $er)
               <li>{{ $er }}</li>
@@ -79,7 +80,7 @@
             </div>
             <button type="submit" class="btn">edit your note!</button>
           </form>
-      @endforeach
+      @endforeach --}}
   @endif
   <div class="diary_interface">
     <h1 class="title_di">Share your journee bro</h1>

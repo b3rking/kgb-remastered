@@ -35,7 +35,10 @@ class LikeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Like::create([
+            'user_id' => $request->user()->id,
+            'post_id' => $request->id
+        ]);
     }
 
     /**
