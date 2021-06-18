@@ -53,8 +53,6 @@ class UserController extends Controller
             'email' => $request->email
         ]);
 
-        $user = new User();
-
         return redirect()->route('login');
     }
 

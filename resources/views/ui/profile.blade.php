@@ -57,11 +57,19 @@
           <p>{{ $nt->body }}</p>
           <a href="">edit</a>
           <a href="{{ route('user.destroy', $user->id) }}">delete</a>
+      @endforeach
+      @if($errors->any())
+         <ul>
+            @foreach($errors->all() as $er)
+              <li>{{ $er }}</li>
+            @endforeach
+         </ul>
+      @endif
+      @foreach($notes as $nt)
           <form action="{{ route('note.update', $user->id) }}" method="post">
             <h4>editing note...</h4>
             @csrf
             @method('patch')
-            <input type="text" name="id" hidden="" value="{{ $user->id }}">
             <div class="input-box">
               <label for="title">title</label>
               <input type="text" name="title" id="title" value="{{ $nt->title }}">
